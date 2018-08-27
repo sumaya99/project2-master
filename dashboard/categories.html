@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../responsive.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Categories</title>
+</head>
+<body>
+        <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+                <div class="navbar-header">
+                                <!-- <div class="menu"><a class="menu-icon">&#9776;</a></div> -->
+                                <a class="navbar-brand" href="../index.html">Re:Coded BLOG</a>
+                            </div>
+            </nav>
+<nav class="navbar-primary">
+        <div><a class="btn-expand-collapse"><span class="fa menu-icon"></span>&#9776;</a></div>
+        <ul class="navbar-primary-menu">
+        <li><a href="../index.html"><i class="fa fa-home"></i><span class="nav-label">Main Page</span></a></li>
+        <li><a class="selected" href="../dashboard/categories.html"><i class="fa fa-folder"></i><span class="nav-label">Categories</span></a></li>
+        <li><a href="../dashboard/comments.html"><i class="fa fa-comments-o"></i><span class="nav-label">Comments</span></a></li>
+        <li><a href="../dashboard/posts.html"><i class="fa fa-newspaper-o"></i><span class="nav-label">Posts</span></a></li>
+        <li><a href="../dashboard/users.html"><i class="fa fa-users"></i><span class="nav-label">Users</span></a></li>
+    </ul>
+</nav>
+<div class="main-content">
+        <div class="row">
+                <div class="col-md-4">
+                  <h3>ADD CATEGORY</h3>
+                  <form class="form-inline">
+                        <div class="form-group mb-2 sm-12">
+                                <input type="text" id="name" class="form-control" placeholder="Enter Name">
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary" id="sub-button">Submit</button>
+                      </form>
+                   </div>
+                <div class="col-md-4 ">
+                  <h3>CATEGORIES</h3>
+                  <table id="userTable" class="table table-striped">
+                      <thead>
+                    <tr>
+                      <th scope="col" >Id</th>
+                      <th scope="col" >Name</th>
+                      <th scope="col" >Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+crossorigin="anonymous"></script>
+<script src="./categories.js"></script>
+</body>
+</html>

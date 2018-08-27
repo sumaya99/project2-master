@@ -1,0 +1,23 @@
+
+@media (min-width: 320px) and (max-width: 1024px){
+    nav a.btn-expand-collapse{
+    display: block;
+    }
+    .main-content {
+        margin-top: 60px;
+        margin-left: 0px;
+        padding: 20px;
+      }
+      .navbar-primary{
+        position: relative;
+        top:0px;
+        width:100%;
+      }
+      .navbar-primary-menu,
+      .navbar-primary-menu li {
+        position: relative;
+        top:30px;
+padding-bottom:30px;
+      }
+      
+  }

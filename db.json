@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "lorem",
+      "body": "lorem ipsum",
+      "userId": 1,
+      "categoryId": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1,
+      "userId": 1
+    },
+    {
+      "name": "",
+      "comment": "",
+      "postId": "",
+      "userId": "",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "typicode",
+      "email": "user@example.com"
+    },
+    {
+      "name": "jkjkjk",
+      "id": 2
+    },
+    {
+      "name": "jkjk",
+      "email": "undefinedjjkj",
+      "id": 3
+    },
+    {
+      "name": "tokyo",
+      "id": 4
+    },
+    {
+      "name": "",
+      "id": 5
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Uncatagorized"
+    }
+  ]
+}
