@@ -1,88 +1,63 @@
-$(function() {
-    const loadData = function() {
-        $.ajax({
-            url: 'http://localhost:3000/categories',
-            contentType: 'application/json',
-            success: function(response) {
-                var tbodyEl = $('tbody');
- 
-                tbodyEl.html('');
- 
-                response.forEach(function(el) {
-                    tbodyEl.append('\
-                        <tr>\
-                            <td class="id">' + el.id + '</td>\
-                            <td><input type="text" class="name" value="' + el.name + '"></td>\
-                            <td align="center">\
-                            <button class="btn btn-success form-control">Edit</button>\
-                        </td>\
-                        <td align="center">\
-                            <button class="btn btn-danger form-control">Delete</button>\
-                        </td>\
-                        </tr>\
-                    ');
+(function(){
+    const url='http://localhost:3000/categories';
+       
+            axios({
+                method:'get',
+                url:url,
+              })
+                .then(response=>{
+                  const tbody = $('table tbody');
+                  response.data.forEach((el, i) => {
+                      const tr = $('<tr>')
+                          .html(`<td>${el.id}</td>
+                          <td>${el.name}</td>
+                          <td row>
+                          <button class="btn btn-warning inline-block">Edit</button>
+                          <button onClick="del()" class="btn btn-danger inline-block">Delete</button>
+                          </td>
+                          `);
+                  tbody.append(tr);
                 });
-            }
+            })
+            $('#btn-success').on('click', () => {
+            axios({
+                method: 'post',
+                url: url,
+                data: {
+                    name: $('#name').val()
+                }
+              })
+              .then(response =>{
+                console.log('saved successfully')
+            });
         });
-    };
- 
-    // CREATE/POST
-    $('.form-inline').on('submit', function(event) {
-        event.preventDefault();
- 
-        let nameInput = $('#name');
- 
-        $.ajax({
-            url: 'http://localhost:3000/categories',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-            name: nameInput.val(),
-            success: function(response) {
-                console.log(response);
- 
-                nameInput.val('');
-                loadData();
-            }
+    
+        $('.btn-warning').on('click', () => {
+        axios.put('http://localhost:3000/categories/'+ id, body)
+        .then(response => { 
+        
+        console.log(response.data);
         })
-    });
- 
-      // UPDATE/PUT
-      $('table').on('click', '.btn-success', function() {
-        var rowEl = $(this).closest('tr');
-        var id = rowEl.find('.id').text();
-        var newTitle = rowEl.find('.name').val();
-        console.log(newTitle);
- 
-        $.ajax({
-            url:   'http://localhost:3000/categories/'+ id,
-            method: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify({ name: newTitle }),
-            success: function(response) {
-                loadData();
-                // $('#sub-button').click();
-            }
+        .catch(err => { 
+        
+        console.log(err);
         });
     });
- 
-     // DELETE
-    $('table').on('click', '.btn-danger', function() {
-        var rowEl = $(this).closest('tr');
-        var id = rowEl.find('.id').text();
-        console.log(rowEl.html);
-        $.ajax({
-            url: 'http://localhost:3000/categories/'+ id,
-            method: 'DELETE',
-            contentType: 'application/json',
-            success: function(response) {
-                console.log(response[0]);
-                loadData();
-            }
-        });
+    del= () => {
+          
+        let newrow = $(this).closest('tr');
+        let id = newrow.find('.id').text();
+        console.log(id);
+              axios.delete('http://localhost:3000/categories/'+id)
+              .then(response=> {
+                console.log(response)})
+               
+          };
+    
+       
+    })();
+
+
+    $('.btn-expand-collapse').click(function(e) {
+        $('.navbar-primary').toggleClass('collapsed');
     });
-   loadData();
- })
- $('.btn-expand-collapse').click(function(e) {
-    $('.navbar-primary').toggleClass('collapsed');
-});
